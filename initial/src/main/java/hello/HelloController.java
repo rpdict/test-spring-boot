@@ -10,5 +10,9 @@ public class HelloController {
     public String index() {
         return "Greetings from Spring Boot!";
     }
-    
+
+    @RequestMapping(value = "hello")
+    public String say(){
+        return "Hello Spring Boot!";
+    }
 }
