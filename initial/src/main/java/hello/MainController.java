@@ -6,7 +6,9 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 @Controller    // This means that this class is a Controller
 @RequestMapping(path = "/demo") // This means URL's start with /demo (after Application path)
@@ -33,9 +35,22 @@ public class MainController {
     @CrossOrigin
     public @ResponseBody
     Object getAllUsers(@RequestParam Integer results, @RequestParam(defaultValue = "1") Integer page) {
-        Pageable pageable = new PageRequest(page-1, results);
+        Pageable pageable = new PageRequest(page - 1, results);
         HashMap<String, Iterable<User>> response = new HashMap<>();
         response.put("results", userRepository.findAll(pageable));
+        return response;
+    }
+
+    @GetMapping(path = "/get")
+    @CrossOrigin
+    public @ResponseBody
+    Object getInputMsg(@RequestParam String name,@RequestParam String email) {
+        System.out.println("========================");
+        System.out.println(name);
+        System.out.println(email);
+        System.out.println("========================");
+        HashMap<String, String> response = new HashMap<>();
+        response.put("results", "success!");
         return response;
     }
 
