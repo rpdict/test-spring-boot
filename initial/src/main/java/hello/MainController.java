@@ -19,7 +19,7 @@ public class MainController {
     @GetMapping(path = "/add") // Map ONLY GET Requests
     @CrossOrigin
     public @ResponseBody
-    String addNewUser(@RequestParam String name
+    Object addNewUser(@RequestParam String name
             , @RequestParam String email) {
         // @ResponseBody means the returned String is the response, not a view name
         // @RequestParam means it is a parameter from the GET or POST request
@@ -28,7 +28,10 @@ public class MainController {
         n.setName(name);
         n.setEmail(email);
         userRepository.save(n);
-        return "Saved";
+
+        HashMap<String, String> response = new HashMap<>();
+        response.put("results", "success");
+        return response;
     }
 
     @GetMapping(path = "/all")
@@ -41,18 +44,18 @@ public class MainController {
         return response;
     }
 
-    @GetMapping(path = "/get")
-    @CrossOrigin
-    public @ResponseBody
-    Object getInputMsg(@RequestParam String name,@RequestParam String email) {
-        System.out.println("========================");
-        System.out.println(name);
-        System.out.println(email);
-        System.out.println("========================");
-        HashMap<String, String> response = new HashMap<>();
-        response.put("results", "success!");
-        return response;
-    }
+//    @GetMapping(path = "/get")
+//    @CrossOrigin
+//    public @ResponseBody
+//    Object getInputMsg(@RequestParam String name,@RequestParam String email) {
+//        System.out.println("========================");
+//        System.out.println(name);
+//        System.out.println(email);
+//        System.out.println("========================");
+//        HashMap<String, String> response = new HashMap<>();
+//        response.put("results", "success");
+//        return response;
+//    }
 
 //    @GetMapping(path = "/all1")
 //    @CrossOrigin
