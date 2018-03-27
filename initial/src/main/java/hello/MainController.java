@@ -44,28 +44,4 @@ public class MainController {
         return response;
     }
 
-//    @GetMapping(path = "/get")
-//    @CrossOrigin
-//    public @ResponseBody
-//    Object getInputMsg(@RequestParam String name,@RequestParam String email) {
-//        System.out.println("========================");
-//        System.out.println(name);
-//        System.out.println(email);
-//        System.out.println("========================");
-//        HashMap<String, String> response = new HashMap<>();
-//        response.put("results", "success");
-//        return response;
-//    }
-
-//    @GetMapping(path = "/all1")
-//    @CrossOrigin
-//    public @ResponseBody
-//    Object getAllUsers1(@RequestParam Integer results, @RequestParam(defaultValue = "1") Integer page) {
-//        Pageable pageable = new PageRequest(page-1, results);
-//
-//        HashMap<String, Iterable<User>> response = new HashMap<>();
-//        response.put("results", userRepository.findAll(pageable));
-//        // This returns a JSON or XML with the users
-//        return response;
-//    }
 }
