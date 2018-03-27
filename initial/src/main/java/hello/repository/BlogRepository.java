@@ -1,5 +1,6 @@
-package hello;
+package hello.repository;
 
+import hello.entity.Blog;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 /**
