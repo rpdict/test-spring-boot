@@ -34,14 +34,4 @@ public class MainController {
         return response;
     }
 
-    @GetMapping(path = "/all")
-    @CrossOrigin
-    public @ResponseBody
-    Object getAllUsers(@RequestParam Integer results, @RequestParam(defaultValue = "1") Integer page) {
-        Pageable pageable = new PageRequest(page - 1, results);
-        HashMap<String, Iterable<User>> response = new HashMap<>();
-        response.put("results", userRepository.findAll(pageable));
-        return response;
-    }
-
 }
