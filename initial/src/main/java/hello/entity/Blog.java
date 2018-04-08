@@ -1,11 +1,9 @@
 package hello.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 /**
  * @author zhaoruipeng
@@ -18,12 +16,14 @@ import javax.persistence.Id;
 @Data
 @Entity
 public class Blog {
-    @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
 
-    private Integer id;
+    private @Id @GeneratedValue Long id;
     private Integer uid;
     private String title;
     private String content;
+
+//    private @Version @JsonIgnore Long version;
+
+    private @ManyToOne User user;
 
 }
