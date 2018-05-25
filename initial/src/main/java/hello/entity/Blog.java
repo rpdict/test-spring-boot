@@ -24,6 +24,6 @@ public class Blog {
 
 //    private @Version @JsonIgnore Long version;
 
-    private @ManyToOne User user;
+//    private @ManyToOne User user;
 
 }

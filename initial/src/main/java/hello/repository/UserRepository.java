@@ -11,7 +11,5 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 @CrossOrigin
 public interface UserRepository extends JpaRepository<User, Long> {
 
-    User save(User user);
-
     User findByName(String name);
 }

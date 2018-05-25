@@ -1,7 +1,9 @@
 package hello.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import jdk.nashorn.internal.objects.annotations.Constructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.ToString;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -14,6 +16,7 @@ import javax.persistence.Id;
 @Data
 @ToString(exclude = "password")
 @Entity // This tells Hibernate to make a table out of this class
+@NoArgsConstructor
 public class User {
 
     public static final PasswordEncoder PASSWORD_ENCODER = new BCryptPasswordEncoder();
@@ -29,7 +32,7 @@ public class User {
 
     private String[] roles;
 
-    public void setPassword(String password) {
+    private void setPassword(String password) {
         this.password = PASSWORD_ENCODER.encode(password);
     }
 
